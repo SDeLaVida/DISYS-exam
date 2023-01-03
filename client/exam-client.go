@@ -18,7 +18,7 @@ import (
 var (
 	totalPorts = 2
 	id         int
-	mainClient rep.ReplicationClient
+	mainClient rep.TemplateClient()
 	reader     = bufio.NewReader(os.Stdin)
 )
 
