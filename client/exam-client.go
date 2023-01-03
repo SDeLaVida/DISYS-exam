@@ -90,7 +90,7 @@ func read() {
 	input = strings.TrimSpace(input)
 	log.Print("(You wrote: " + input + ")")
 
-	mainClient.Read(context.Background(), &rep.ReadMessage{Key: input})
+	mainClient.Read(context.Background(), input)
 
 }
 
@@ -104,7 +104,7 @@ func add() {
 	value = strings.TrimSpace(value)
 
 	log.Print("(You want to update: Key:" + key + ": Value:" + value + ")")
-	mess, err := mainClient.Add(context.Background(), &rep.AddMessage{Key: key, Value: value})
+	mess, err := mainClient.Add(context.Background(), key, value)
 
 	if err != nil {
 		log.Fatalf("Something went wrong %s", err)
