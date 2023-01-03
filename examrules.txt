@@ -1,0 +1,168 @@
+DISYS 2022 Exam
+
+
+
+Welcome to the Distributed Systems 2022 exam (3 January 2023 - 9-14).
+
+
+
+Formalia (read carefully!)
+
+
+
+- You have 5 hours to solve the tasks below
+
+
+
+- You have to submit on LearnIT one (1) single .zip file, with all the
+
+  required material in a folder called Exam, containing:
+
+
+
+  * A file report.pdf or report.txt (max 3 pages)
+
+  
+
+  * Either
+
+
+
+    + A file called pseudo.txt containing your implementation in pseudo-code
+
+
+
+    or
+
+    
+
+    + a file called main.go, that can be used to run your
+
+      implementation in Go (optional, it gives extra points)
+
+    
+
+    + a text file log.txt containing an execution log of your
+
+      implementation in Go (optional, it gives extra points)
+
+    
+
+    + other Go implementation files (optional, if needed by your
+
+      implementation in Go)
+
+    
+
+- If there are any ambiguities, inconsistencies or apparent mistakes
+
+  in the exam text, you must state this in your report, and describe
+
+  how you interpret these for your assignment.
+
+
+
+- Your submission must have been created by you and only you. This
+
+  applies to both written report, code, examples, logs, etc. However,
+
+  you are allowed to recycle code parts from your mandatory
+
+  activities.
+
+
+
+- Your report.txt (or report.pdf) must contain the statement "I hereby
+
+  declare that this submission was created in its entirety by me and
+
+  only me". Please, also mention if you have used code parts from your
+
+  mandatory assignments.
+
+
+
+- Aids allowed for the exam:
+
+
+
+  * written and printed books and notes
+
+  
+
+  * e-books and/or other electronic devices
+
+
+
+  * COMMUNICATION with other people and USE OF AI tools are absolutely
+
+    forbidden!!
+
+
+
+- Grading
+
+
+
+  * The exam is made of 3 parts. We will preliminarly weigh your
+
+    answers with percentages as written below. You must hand in an
+
+    answer to all 3 parts, for your exam submission to be valid.
+
+
+
+  * Multiple choice - 50 %
+
+
+
+  * Implementation - 25 % (pseudo code is sufficient, actual code
+
+    gives extra credits, up to 10% extra)
+
+  
+
+  * Implementation Discussion - 25 %
+
+  
+
+  * Note that the percentages above are only an indication of the
+
+    evaluation. Grades will instead reflect an assessment of your exam
+
+    based on the official directives by the Ministry of Higher
+
+    Education and Science.
+
+
+
+
+
+The report
+
+
+
+- the report must be submitted as a report.pdf or report.txt file (PDF
+
+  or text format)
+
+
+
+- The report consists of 3 parts:
+
+
+
+  * the statement "I hereby declare that this submission was created
+
+    in its entirety by me and only me." Also mention that you have
+
+    recycled some code from your mandatory activities, if any
+
+    
+
+  * A description of your implementation
+
+
+
+  * Answers to the implementation questions
+

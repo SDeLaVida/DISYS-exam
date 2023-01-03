@@ -1,0 +1,41 @@
+== IMPLEMENTATION == 
+Implement a distributed system consisting of a set of nodes that provides a Distributed Dictionary function. 
+
+The system is such that:
+1) it provides two operations called 'add' and 'read'
+2) operation 'add' has two parameters, a word and its definition, and returns a boolean value. Both input parameters are strings.
+3) operation 'add' updates the dictionary at the requested entry with the new definition
+4) operation 'add' returns a confirmation of whether it succeeded or not
+5) operation 'read' has one parameter (a word) and it returns a string
+6) operation 'read' accesses the entry specified by the given word
+7) operation 'read' returns the value associated to the given word(its definition stored in the dictionary)
+8) the system is such that if a call add(word,def) is made, with no subsequent calls to add, then a new call read(word) to that node will return def.
+9) the system has to be implemented with *only* two nodes
+10) the system has to use *passive replication*, that is a primary replica which processes all requests and a backup replica
+11) communication between the clients and the server has to use request-reply, i.e., when the client sends a request to the server, it is blocked until the server replies (unless it crashes)
+12) your system must tolerate a crash-failure of 1 node.
+
+
+
+Partial submissions are accepted, e.g., a not fully working implementation. In this situation, a pseudocode answer that describes the main algorithm and ideas is acceptable, but working Go code gives extra credits. If you hand in only pseudo code, this must be included in a pseudo.txt file.
+
+
+Supplement your working implementation with a log.txt file that shows a correct execution (only if you are submitting a working implementation).
+
+
+
+
+
+
+
+== QUESTIONS ABOUT THE IMPLEMENTATION ==
+
+
+
+Besides a description of the architecture of the system, you need to answer the following questions about how you satisfy the specification above. Please be as concise as possible and always within the 3-page limit.
+
+a) how does your system satisfy points 1-7
+b) argue why your system satisfies the requirement in point 8
+c) argue why the system is tolerant to one crash-failure
+d) argue whether your system satisfies linearisability and/or causal consistency.
+

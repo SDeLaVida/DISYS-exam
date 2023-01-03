@@ -1,0 +1,7 @@
+2023/01/03 16:08:54 Connected to main server at port: 50000
+2023/01/03 16:08:54 Do want to "Read" or "Add" to the dictionary?
+2023/01/03 16:08:56 (You wrote: add)
+2023/01/03 16:08:56 Write the key you want to update
+2023/01/03 16:08:58 Write the value you want to use
+2023/01/03 16:08:59 (You want to update: Key:hello: Value:helloson)
+2023/01/03 16:08:59 Something went wrong rpc error: code = Unavailable desc = error reading from server: read tcp 127.0.0.1:57345->127.0.0.1:50000: wsarecv: An existing connection was forcibly closed by the remote host.

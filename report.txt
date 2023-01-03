@@ -1,0 +1,89 @@
+I hereby declare that this submission was created in its entirety by me and only me.
+I have recycled structural code from Assignment 5 
+a little code structure from the offical TA walkthrough by Asmus, but most of it has been removed. 
+
+The implementation if it worked, would have been run by using the following commands
+
+> go run exam-client 0
+> go run exam-server 0
+> go run exam-server 1
+
+this would have spawned a client with an id to differentiate between multiple clients
+and two replica servers at port 50000 and 50001. 
+
+The client can't for some reason reach any of the servers and explodes when you try to do the "add" function.
+
+Some things are missing from the implementation:
+1. I would have loved to switch between the leaders between the different replica servers meaning that if one client crashed the 
+client would have switched to the next available replica server. 
+This would mean that we could switch from one server to another smoothly, i would probably have done it with a function 
+that updates the MainClient variable when we reached a dead server. Up to a cap of 2 but should have worked with more servers.
+
+
+How it would have worked.
+- Add
+A client would have called the Add function on the current main server. This is usually the server with the lowest ID that
+is still active and has not crashed. The Server would have tried to update all of the replica servers. In the event that a
+server had crashed it would have skipped the server in question and continued with the other servers. If one of the servers
+failed to update their key -> value. The server would have stopped the request and deemed it as a failure. meaning
+that the client would have to send the request again.
+If all alive servers had updated their value correctly. (This is verified with a call to the read value for each server)
+then the main server would have updated their value as well. This is to ensure that if a commit that failed on a replication
+server can't be commited on the main server -> as this would result in a split brain scenario.
+
+Also due to the requirement only being for 2 servers, adding any more servers to the program would work but it wouldn't
+be able to garuantee consistency anymore as we update the servers by incrementing the port numbers and a failure to update 
+in one of the later servers would leave all the preceeding servers with a different key value pairs. 
+Never the main server though. This could be fixed with a rollback functionality.
+
+- Read
+Read just reads the key value pair from the main servers map datastructure. This function should always work as it depends
+on the main servers map which should always contain the correct key value pairs.
+
+To answer
+a) how does your system satisfy points 1-7
+1. There are two functions on the server called add and read.
+2. The takes a message instead of a word and its definition.
+The functionality is the same it is just hidden in a addMessage.
+It returns an AckMessage that contains a boolean named Success
+that indicates whether it got added or not.
+3. This is done with the map(string)string type that is by it
+self a key value datastructure
+4.AckMessage as mentioned before does this.
+5. Hidden in the readMessage. This holds a single string that
+corresponds to a key. (The key that you want to read)
+6. Uses the map[key] functionality to return the correct value
+returns an error if it doesn't exists.
+7. see above.
+
+b) argue why your system satisfies the requirement in point 8
+This is ensured because in order for a value to be updated,
+it has to use to be replicated on all alive replication servers.
+It will only be counted as a success if every alive server has 
+updated its value. Only then will the main server also update its own
+value.
+My implementation garuantees this for 2 servers, but can not for more
+than 2. Supporting more server could have been implemented by adding 
+a roll back functionality in case that something went wrong.
+
+
+
+c) argue why the system is tolerant to one crash-failure
+If the main server would have failed, then the client upon detection
+would have switched to the server at the crashed server port + 1. It would have
+done this until it connected to a valid server less than the totalCap of 2 servers and 
+because every replica server that is alive has the same state as the main server. Then 
+functionality could resume with the next server now being the main server.
+
+If the replica server would have crashed then the server would just skip it when
+trying to update its dictionary with the updateReplicas() function.
+
+
+d) argue whether your system satisfies linearisability and/or causal consistency.
+Linearizability can be difficult to achieve in a passive replication system because only one copy of the data is updated at a time. 
+This means that the updates may not be immediately visible to all the other processes in the system, which would lead to inconsistencies in the key value store.
+Additionally, passive replication in general aswell as my system may not provide a total order on all requests, which is another requirement for linearizability.
+
+It should satisfy the causal consistency as we never commit any action without it being duplicated on replica servers.
+
+

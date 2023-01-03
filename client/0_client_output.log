@@ -1,0 +1,8 @@
+2023/01/03 16:36:37 Could not connect: %s context deadline exceeded
+2023/01/03 16:36:37 Connected to main server at port: 50001
+2023/01/03 16:36:37 Do want to "Read" or "Add" to the dictionary?
+2023/01/03 16:36:42 (You wrote: read)
+2023/01/03 16:36:42 Write a key corresponding to a value
+2023/01/03 16:36:44 (You wrote: hello)
+2023/01/03 16:36:44 Do want to "Read" or "Add" to the dictionary?
+2023/01/03 16:50:26 (You wrote: )
